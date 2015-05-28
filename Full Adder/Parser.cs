@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Full_Adder
 {
-    class Program
+    public class Parser
     {
-        public Parser Parser
+        public Factory Factory
         {
             get
             {
@@ -16,12 +15,8 @@ namespace Full_Adder
             }
             set
             {
+
             }
-        }
-    
-        static void Main(string[] args)
-        {
-            
         }
     }
 }
