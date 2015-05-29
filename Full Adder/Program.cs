@@ -11,7 +11,8 @@ namespace Full_Adder
 
         static void Main(string[] args)
         {
-            Parser p = new Parser();
+            Console.WriteLine("Parser wordt gestart");
+            Parser p = new Parser("circuit1.txt");
         }
     }
 }
