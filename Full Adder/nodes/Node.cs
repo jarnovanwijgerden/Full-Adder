@@ -5,6 +5,11 @@ namespace Full_Adder
     {
         private List<bool> inputs;
 
+        public List<bool> Input
+        {
+            get { return inputs; }
+            set { inputs = value; }
+        }
         private List<Node> dependencies;
         public Node()
         {
@@ -17,7 +22,7 @@ namespace Full_Adder
      
         public void addInput(bool input)
         {
-            inputs.Add(input);
+            Input.Add(input);
         }
  
         public virtual bool execute()
