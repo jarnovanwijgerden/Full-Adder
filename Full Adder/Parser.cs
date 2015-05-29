@@ -29,26 +29,39 @@ namespace Full_Adder
         }
         private void readLine(String line)
         {
-            if(line.Trim() == "")
+            if (!line.StartsWith("#"))
             {
-                state = "edges";
-            }
-            else
-            {
-                if (state == "nodes") {
-                    nodelines.Add(line);
+                if (line.Trim() == "")
+                {
+                    state = "edges";
                 }
-                else {
-                    egdeslines.Add(line);
+                else
+                {
+                    if (state == "nodes")
+                    {
+                        nodelines.Add(line);
+                    }
+                    else
+                    {
+                        egdeslines.Add(line);
+                    }
                 }
             }
+           
         }
         private void bindNodes()
         {
             foreach (String line in nodelines) {
 
-                String[] parts = line.Trim().Split(':');
 
+                Console.WriteLine("Nodeline " + line);
+                //String[] parts = line.Trim().Split(':');
+
+            }
+
+            foreach (String line in egdeslines)
+            {
+                Console.WriteLine("Edgeline " + line);
             }
         }
         
