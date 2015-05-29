@@ -8,20 +8,10 @@ namespace Full_Adder
 {
     class Program
     {
-        public Parser Parser
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-    
+
         static void Main(string[] args)
         {
-            
+            Parser p = new Parser();
         }
     }
 }
