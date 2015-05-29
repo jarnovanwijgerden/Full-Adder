@@ -9,7 +9,7 @@ namespace Full_Adder
     {
         public override bool execute()
         {
-            return this.Input[0] == false;
+            return !this.Input[0];
         }
     }
 }
