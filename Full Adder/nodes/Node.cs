@@ -1,14 +1,14 @@
 ﻿using Full_Adder.observer;
+using Full_Adder.patterns;
 using System;
 using System.Collections.Generic;
 namespace Full_Adder
 {
-    public class Node : IObserver, IObservable
+    public class Node : Strategy, IObserver, IObservable
     {
         private string name;
         private List<bool> inputs = new List<bool>();
         private List<Node> dependencies = new List<Node>();
-
         public List<Node> Dependencies
         {
             get { return dependencies; }
@@ -20,7 +20,6 @@ namespace Full_Adder
             get { return inputcount; }
             set { inputcount = value; }
         }
-
         public string Name
         {
             get { return name; }
@@ -40,15 +39,7 @@ namespace Full_Adder
                 NotifyObservers(val);
             }
         }
-        public virtual bool execute()
-        {
-            Console.WriteLine("Error @ {0}", Name);
-            throw new NotImplementedException();
-        }
-        public virtual bool result()
-        {
-            throw new NotImplementedException();
-        }
+      
         public void Notify(bool value)
         {
             this.inputs.Add(Convert.ToBoolean(value));
@@ -73,6 +64,15 @@ namespace Full_Adder
             foreach(Node n in dependencies) {
                 n.Notify(value);
             }
+        }
+        public override bool execute()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool result()
+        {
+            throw new NotImplementedException();
         }
     }
 }

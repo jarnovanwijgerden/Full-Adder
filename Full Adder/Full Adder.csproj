@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Circuit.cs" />
     <Compile Include="exception\UnconnectedPinsException.cs" />
-    <Compile Include="Factory.cs" />
+    <Compile Include="patterns\Factory.cs" />
     <Compile Include="nodes\Node.cs" />
     <Compile Include="nodes\NodeAnd.cs" />
     <Compile Include="nodes\NodeInputHigh.cs" />
@@ -54,9 +54,10 @@
     <Compile Include="nodes\NodeOR.cs" />
     <Compile Include="nodes\NodeXor.cs" />
     <Compile Include="nodes\Probe.cs" />
-    <Compile Include="observer\IObservable.cs" />
-    <Compile Include="observer\IObserver.cs" />
+    <Compile Include="patterns\observer\IObservable.cs" />
+    <Compile Include="patterns\observer\IObserver.cs" />
     <Compile Include="Parser.cs" />
+    <Compile Include="patterns\Strategy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

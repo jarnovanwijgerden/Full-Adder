@@ -8,12 +8,10 @@ namespace Full_Adder
 {
     public class Parser
     {
-
         private Factory nodeFactory;
         private List<String> nodelines;
         private List<String> egdeslines;
         private String state = "nodes";
-        private List<Node> nodes;
         public Parser(String filename)
         {
             nodelines = new List<string>();
@@ -32,9 +30,8 @@ namespace Full_Adder
             }
             catch (FileNotFoundException e)
             {
-                Console.WriteLine("Foute invoer");
+                Console.WriteLine("Foute invoer " + e.ToString());
             }
-           
         }
         private void readLine(String line)
         {
@@ -56,23 +53,6 @@ namespace Full_Adder
                     }
                 }
             }
-           
         }
-        //private void bindNodes()
-        //{
-        //    foreach (String line in nodelines) {
-
-
-        //        Console.WriteLine("Nodeline " + line);
-        //        //String[] parts = line.Trim().Split(':');
-
-        //    }
-
-        //    foreach (String line in egdeslines)
-        //    {
-        //        Console.WriteLine("Edgeline " + line);
-        //    }
-        //}
-        
     }
 }
