@@ -21,12 +21,20 @@ namespace Full_Adder
             nodeFactory = new Factory();
             string line;
             string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\circuits\\" + filename;
-            System.IO.StreamReader file = new System.IO.StreamReader(path);
-            while ((line = file.ReadLine()) != null)
+            try
             {
+                System.IO.StreamReader file = new System.IO.StreamReader(path);
+                while ((line = file.ReadLine()) != null)
+                {
                     readLine(line);
+                }
+                nodeFactory.generateNodes(nodelines, egdeslines);
             }
-            nodeFactory.generateNodes(nodelines, egdeslines);
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine("Foute invoer");
+            }
+           
         }
         private void readLine(String line)
         {
