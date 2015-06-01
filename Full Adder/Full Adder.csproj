@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circuit.cs" />
+    <Compile Include="exception\UnconnectedPinsException.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="nodes\Node.cs" />
     <Compile Include="nodes\NodeAnd.cs" />

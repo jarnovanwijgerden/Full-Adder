@@ -8,6 +8,19 @@ namespace Full_Adder
         private string name;
         private List<bool> inputs = new List<bool>();
         private List<Node> dependencies = new List<Node>();
+
+        public List<Node> Dependencies
+        {
+            get { return dependencies; }
+            set { dependencies = value; }
+        }
+        private int inputcount;
+        public int Inputcount
+        {
+            get { return inputcount; }
+            set { inputcount = value; }
+        }
+
         public string Name
         {
             get { return name; }
@@ -21,17 +34,28 @@ namespace Full_Adder
         public void addInput(bool input)
         {
             Input.Add(input);
+            if (inputcount == inputs.Count)
+            {
+                bool val = this.execute();
+                NotifyObservers(val);
+            }
         }
         public virtual bool execute()
         {
-            return true;
+            Console.WriteLine("Error @ {0}", Name);
+            throw new NotImplementedException();
+        }
+        public virtual bool result()
+        {
+            throw new NotImplementedException();
         }
         public void Notify(bool value)
         {
             this.inputs.Add(Convert.ToBoolean(value));
-            if (dependencies.Count == inputs.Count)
+            if (inputcount == inputs.Count)
             {
                 bool val = this.execute();
+                Console.WriteLine("Node {0} uitgevoerd, uitkomst {1 } ", this.Name, val);
                 NotifyObservers(val);
             }
             
