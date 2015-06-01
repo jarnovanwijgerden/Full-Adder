@@ -9,14 +9,16 @@ namespace Full_Adder
     public class Parser
     {
 
-        List<String> nodelines;
-        List<String> egdeslines;
-        String state = "nodes";
-        List<Node> nodes;
+        private Factory nodeFactory;
+        private List<String> nodelines;
+        private List<String> egdeslines;
+        private String state = "nodes";
+        private List<Node> nodes;
         public Parser(String filename)
         {
             nodelines = new List<string>();
             egdeslines = new List<string>();
+            nodeFactory = new Factory();
             string line;
             string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\circuits\\" + filename;
             System.IO.StreamReader file = new System.IO.StreamReader(path);
@@ -24,8 +26,7 @@ namespace Full_Adder
             {
                     readLine(line);
             }
-            bindNodes();
-            Console.ReadLine();          
+            nodeFactory.generateNodes(nodelines, egdeslines);
         }
         private void readLine(String line)
         {
@@ -49,21 +50,21 @@ namespace Full_Adder
             }
            
         }
-        private void bindNodes()
-        {
-            foreach (String line in nodelines) {
+        //private void bindNodes()
+        //{
+        //    foreach (String line in nodelines) {
 
 
-                Console.WriteLine("Nodeline " + line);
-                //String[] parts = line.Trim().Split(':');
+        //        Console.WriteLine("Nodeline " + line);
+        //        //String[] parts = line.Trim().Split(':');
 
-            }
+        //    }
 
-            foreach (String line in egdeslines)
-            {
-                Console.WriteLine("Edgeline " + line);
-            }
-        }
+        //    foreach (String line in egdeslines)
+        //    {
+        //        Console.WriteLine("Edgeline " + line);
+        //    }
+        //}
         
     }
 }

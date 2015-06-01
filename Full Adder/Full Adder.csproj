@@ -45,11 +45,16 @@
     <Compile Include="Factory.cs" />
     <Compile Include="nodes\Node.cs" />
     <Compile Include="nodes\NodeAnd.cs" />
+    <Compile Include="nodes\NodeInputHigh.cs" />
+    <Compile Include="nodes\NodeInputLow.cs" />
     <Compile Include="nodes\NodeNand.cs" />
     <Compile Include="nodes\NodeNor.cs" />
     <Compile Include="nodes\NodeNot.cs" />
     <Compile Include="nodes\NodeOR.cs" />
     <Compile Include="nodes\NodeXor.cs" />
+    <Compile Include="nodes\Probe.cs" />
+    <Compile Include="observer\IObservable.cs" />
+    <Compile Include="observer\IObserver.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,6 +13,7 @@ namespace Full_Adder
         {
             Console.WriteLine("Parser wordt gestart");
             Parser p = new Parser("circuit1.txt");
+            Console.ReadLine();
         }
     }
 }
