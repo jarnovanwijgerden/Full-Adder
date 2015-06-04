@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
+using Full_Adder.exception;
 
 namespace Full_Adder
 {
@@ -31,6 +32,10 @@ namespace Full_Adder
                     n = (Node)Activator.CreateInstance(typelist[i]);
                 }
             }
+            if(n == null)
+            {
+                throw new UnknownNodeTypeException();
+            }
             return n;
         }
         public void generateNodes(List<string> lines, List<string> e)
@@ -40,10 +45,15 @@ namespace Full_Adder
                 String[] parts = line.Replace(';', ' ').Split(':');
                 String name = parts[0];
                 String value = parts[1].Trim();
-
-                Node node = get(value);
-                node.Name = name;
-                list.Add(node);
+                try {
+                    Node node = get(value);
+                    node.Name = name;
+                    list.Add(node);
+                }
+                catch (UnknownNodeTypeException ex) {
+                    Console.ReadKey();
+                    System.Environment.Exit(0);
+                }              
             }
             bindNodes(e);
         }
