@@ -1,29 +1,35 @@
 ﻿using Full_Adder.exception;
+using Full_Adder.nodes;
 using System;
 using System.Collections.Generic;
 namespace Full_Adder
 {
     public class Circuit
     {
-        public Circuit(List<Node>n)
+        public void startCircuit(List<Node> n)
         {
-            var query = n.FindAll(nodes => nodes.GetType().Name == "NodeInputHigh" || nodes.GetType().Name == "NodeInputLow");
-            foreach(Node input in query)
+            var query = n.FindAll(nodes => nodes.GetType().Name == "INPUT_HIGH" || nodes.GetType().Name == "INPUT_LOW");
+            foreach (Node input in query)
             {
-                if(input.GetType().Name == "NodeInputHigh") {
-                    input.addInput(true);
-                }
-                else {
-                    input.addInput(false);
-                }
+                addInputToProbe(input);
             }
             finishedCircuit(n);
         }
-
+        private void addInputToProbe(Node input)
+        {
+            if (input.GetType().Name == "INPUT_HIGH")
+            {
+                input.addInput(true);
+            }
+            else
+            {
+                input.addInput(false);
+            }
+        }
         private void finishedCircuit(List<Node>n)
         {
-            Console.WriteLine("Uitkomst van circuit");
-            var query = n.FindAll(nodes => nodes.GetType().Name == "Probe");
+            Console.WriteLine("\n\nUitkomst van circuit\n");
+            var query = n.FindAll(nodes => nodes.GetType().Name == "PROBE");
             try
             {
                 foreach (Node probe in query)

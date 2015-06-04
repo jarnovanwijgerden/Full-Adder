@@ -1,14 +1,13 @@
 ﻿using Full_Adder.exception;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Full_Adder.nodes
 {
-    class Probe : Node
+    class PROBE : Node
     {
+        public PROBE()
+        {
+            this.Inputcount = 1;
+            this.ExtraInfo = "PROBE";
+        }
         public override bool result()
         {
             if(Input.Count == 0)

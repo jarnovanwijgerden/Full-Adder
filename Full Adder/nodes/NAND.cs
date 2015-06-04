@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Full_Adder
+﻿namespace Full_Adder.nodes
 {
-    public class NodeNand : Node
+    public class NAND : Node
     {
+        public NAND()
+        {
+            this.Inputcount = 2;
+            this.ExtraInfo = "NAND";
+        }
         public override bool execute()
         {
             if(this.Input[0] == this.Input[1] && this.Input[1] == false || this.Input[0] != this.Input[1])

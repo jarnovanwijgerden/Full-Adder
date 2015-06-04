@@ -2,11 +2,15 @@
 using Full_Adder.patterns;
 using System;
 using System.Collections.Generic;
-namespace Full_Adder
+
+namespace Full_Adder.nodes
 {
     public class Node : Strategy, IObserver, IObservable
     {
         private string name;
+        private string extraInfo;
+        private int inputcount;
+
         private List<bool> inputs = new List<bool>();
         private List<Node> dependencies = new List<Node>();
         public List<Node> Dependencies
@@ -14,7 +18,11 @@ namespace Full_Adder
             get { return dependencies; }
             set { dependencies = value; }
         }
-        private int inputcount;
+        public string ExtraInfo
+        {
+            get { return extraInfo; }
+            set { extraInfo = value; }
+        }
         public int Inputcount
         {
             get { return inputcount; }
@@ -46,7 +54,7 @@ namespace Full_Adder
             if (inputcount == inputs.Count)
             {
                 bool val = this.execute();
-                Console.WriteLine("Node {0} uitgevoerd, uitkomst {1 } ", this.Name, val);
+                Console.WriteLine("Node {0} is een {1} en heeft uitkomst {2} ", this.Name, this.ExtraInfo, val);
                 NotifyObservers(val);
             }
             

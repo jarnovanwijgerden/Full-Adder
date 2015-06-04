@@ -1,62 +1,37 @@
 ﻿using Full_Adder.nodes;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
+
 namespace Full_Adder
 {
     public class Factory
     {
         List<Node> list;
         Circuit circuit;
+        Type[] typelist;
         public Factory()
         {
             list = new List<Node>();
-           
+            circuit = new Circuit();
+            typelist = GetTypesInNamespace(Assembly.GetExecutingAssembly(), "Full_Adder.nodes");
         }
-        public Node get(string name)
+        private Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
         {
-            Node n;
-            switch (name)
+            return assembly.GetTypes().Where(t => String.Equals(t.Namespace, nameSpace, StringComparison.Ordinal)).ToArray();
+        }
+        public Node get(string className)
+        {
+            Node n = null;
+            for (int i = 0; i < typelist.Length; i++)
             {
-                case "INPUT_HIGH":
-                    n = new NodeInputHigh();
-                    n.Inputcount = 1;
-                    return n;
-                case "INPUT_LOW":
-                    n = new NodeInputLow();
-                    n.Inputcount = 1;
-                    return n;
-                case "PROBE":
-                    n = new Probe();
-                    n.Inputcount = 1;
-                    return n;
-                case "OR":
-                    n = new NodeOR();
-                    n.Inputcount = 2;
-                    return n;
-                case "AND":
-                    n = new NodeAnd();
-                    n.Inputcount = 2;
-                    return n;
-                case "NOT":
-                    n = new NodeNot();
-                    n.Inputcount = 1;
-                    return n;
-                case "NAND":
-                    n = new NodeNand();
-                    n.Inputcount = 2;
-                    return n;
-                case "XOR":
-                    n = new NodeXor();
-                    n.Inputcount = 2;
-                    return n;
-                case "NOR":
-                    n = new NodeNor();
-                    n.Inputcount = 2;
-                    return n;
-                default:
-                    Console.WriteLine("Naam is " + name);
-                    throw new Exception();
+                if (typelist[i].Name == className)
+                {
+                    n = (Node)Activator.CreateInstance(typelist[i]);
+                }
             }
+            return n;
         }
         public void generateNodes(List<string> lines, List<string> e)
         {
@@ -71,9 +46,7 @@ namespace Full_Adder
                 list.Add(node);
             }
             bindNodes(e);
-        
         }
-
         private void bindNodes(List<string> edges)
         {
             foreach (String line in edges)
@@ -88,22 +61,12 @@ namespace Full_Adder
                     node.Register(d);
                 }
             }
-            circuit = new Circuit(list);
+            circuit.startCircuit(list);
         }
-
         private Node getNodeByName(String name)
         {
             var matches = list.Find(p => p.Name == name);
             return matches;
-        }
-
-        public void loopthroughlist()
-        {
-            foreach(Node n in list)
-            {
-                Console.WriteLine(n.Name + " | " + n.GetType());
-            }
-        }
-    
+        } 
     }
 }

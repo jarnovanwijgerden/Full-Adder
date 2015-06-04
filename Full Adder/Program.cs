@@ -9,17 +9,35 @@ namespace Full_Adder
 {
     class Program
     {
+        static String input = "";
         static void Main(string[] args)
+        {
+           
+            do
+            {
+                showInfo();
+                askForInput();
+
+            } while (true);
+        }
+        private static void showInfo()
         {
             Console.WriteLine("Welkom bij Full Adder");
             Console.WriteLine("Kies een bestand (Typ de volledige naam bijv 'circuit1' ) \n");
             string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\circuits";
             string[] files = Directory.GetFiles(path);
-            foreach (string name in files) {
+            foreach (string name in files)
+            {
                 Console.WriteLine("Bestand {0} ", Path.GetFileName(name));
             }
-            String filename = Console.ReadLine();
-            Parser p = new Parser(filename + ".txt");
+        }
+        private static void askForInput()
+        {
+            input = Console.ReadLine();
+            if (input.ToLower() != "exit")
+            {
+                Parser p = new Parser(input + ".txt");
+            }
             Console.ReadLine();
         }
     }

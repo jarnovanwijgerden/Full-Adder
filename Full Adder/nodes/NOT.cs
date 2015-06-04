@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-namespace Full_Adder
+namespace Full_Adder.nodes
 {
-    public class NodeNot : Node
+    public class NOT : Node
     {
+        public NOT()
+        {
+            this.Inputcount = 1;
+            this.ExtraInfo = "NOT";
+        }
         public override bool execute()
         {
             return !this.Input[0];
