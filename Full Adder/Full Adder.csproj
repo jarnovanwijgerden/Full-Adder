@@ -64,8 +64,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Diagrammen\Lowbinding_Factory.sequencediagram" />
+    <None Include="Diagrammen\Node_NotifyObservers.sequencediagram" />
+    <None Include="Diagrammen\Program_Main.sequencediagram" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Diagrammen\Lowbinding_Factory.sequencediagram.layout">
+      <DependentUpon>Lowbinding_Factory.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrammen\Node_NotifyObservers.sequencediagram.layout">
+      <DependentUpon>Node_NotifyObservers.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrammen\Program_Main.sequencediagram.layout">
+      <DependentUpon>Program_Main.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="circuits\circuit1.txt" />
     <Content Include="circuits\circuit2.txt" />
