@@ -10,6 +10,7 @@ namespace Full_Adder.nodes
             this.Inputcount = 1;
             this.ExtraInfo = "NOT";
         }
+        //Overschrijven van de methode (Strategy pattern)
         public override bool execute()
         {
             return !this.Input[0];

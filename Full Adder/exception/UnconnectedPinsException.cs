@@ -8,6 +8,7 @@ namespace Full_Adder.exception
 {
     class UnconnectedPinsException : Exception
     {
+        //Constructor voor het afhandelen van de exception (Message tonen)
         public UnconnectedPinsException()
         {
             Console.WriteLine("Error, unconnected pins exception");

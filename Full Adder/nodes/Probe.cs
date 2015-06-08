@@ -8,6 +8,8 @@ namespace Full_Adder.nodes
             this.Inputcount = 1;
             this.ExtraInfo = "PROBE";
         }
+        //Overschrijven van de methode (Strategy pattern)
+        //Wanneer er geen input binnen is gekomen bij de probe, zal er een exception optreden
         public override bool result()
         {
             if(Input.Count == 0)
@@ -16,6 +18,7 @@ namespace Full_Adder.nodes
             }
             return Input[0];
         }
+        //Overschrijven van de methode (Strategy pattern)
         public override bool execute()
         {
             return Input[0];

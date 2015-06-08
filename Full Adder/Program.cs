@@ -12,7 +12,7 @@ namespace Full_Adder
         static String input = "";
         static void Main(string[] args)
         {
-           
+            //Programma continue laten draaien
             do
             {
                 showInfo();
@@ -20,6 +20,7 @@ namespace Full_Adder
 
             } while (true);
         }
+        //Tekst printen
         private static void showInfo()
         {
             Console.WriteLine("Welkom bij Full Adder");
@@ -31,6 +32,7 @@ namespace Full_Adder
                 Console.WriteLine("Bestand {0} ", Path.GetFileName(name));
             }
         }
+        //Opvangen welk bestand uitgelezen moet worden
         private static void askForInput()
         {
             input = Console.ReadLine();

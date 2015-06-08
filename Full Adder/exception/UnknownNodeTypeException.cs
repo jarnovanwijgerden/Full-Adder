@@ -8,6 +8,7 @@ namespace Full_Adder.exception
 {
     class UnknownNodeTypeException : Exception
     {
+        //Constructor voor het afhandelen van de exception (Message tonen)
         public UnknownNodeTypeException()
         {
             Console.WriteLine("Error, Unknown node type");

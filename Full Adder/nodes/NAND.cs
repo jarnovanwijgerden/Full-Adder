@@ -7,6 +7,7 @@
             this.Inputcount = 2;
             this.ExtraInfo = "NAND";
         }
+        //Overschrijven van de methode (Strategy pattern)
         public override bool execute()
         {
             if(this.Input[0] == this.Input[1] && this.Input[1] == false || this.Input[0] != this.Input[1])

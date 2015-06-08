@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Full_Adder.observer
 {
+    //Interface voor IObservable Pattern
     interface IObservable
     {
+        //Methodes die geimplementeerd moeten worden
         void Register(Node node);
         void UnRegister(Node node);
     }
