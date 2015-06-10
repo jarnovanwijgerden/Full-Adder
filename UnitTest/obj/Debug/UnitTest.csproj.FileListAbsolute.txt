@@ -1,0 +1,7 @@
+C:\Users\Louis Hol\Documents\GitHub\Full-Adder\UnitTest\bin\Debug\UnitTest.dll
+C:\Users\Louis Hol\Documents\GitHub\Full-Adder\UnitTest\bin\Debug\UnitTest.pdb
+C:\Users\Louis Hol\Documents\GitHub\Full-Adder\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Louis Hol\Documents\GitHub\Full-Adder\UnitTest\obj\Debug\UnitTest.dll
+C:\Users\Louis Hol\Documents\GitHub\Full-Adder\UnitTest\obj\Debug\UnitTest.pdb
+C:\Users\Louis Hol\Documents\GitHub\Full-Adder\UnitTest\bin\Debug\Full Adder.exe
+C:\Users\Louis Hol\Documents\GitHub\Full-Adder\UnitTest\bin\Debug\Full Adder.pdb
